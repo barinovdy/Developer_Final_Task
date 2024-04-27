@@ -1,5 +1,9 @@
-﻿string[] CreateArray(int initArrayLength)
+﻿string[] CreateArray()
 {
+    Console.Write("Введите количество элементов массива: ");
+    int initArrayLength = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите последовательно элементы массива в виде строк: ");
+
     string[] array = new string[initArrayLength];
 
     for (int i = 0; i < array.Length; i++)
@@ -20,6 +24,12 @@ string[] ReduceCopyArray(string[] array, int numMaxStringLetters)
         {
             numShortElm ++;
         }
+    }
+
+    if (numShortElm == 0)
+    {
+        string[] ResultArrayNull = new string[1];
+        return ResultArrayNull;
     }
 
     string[] ResultArray = new string[numShortElm];
@@ -47,8 +57,7 @@ void PrintArray(string[] array)
     Console.WriteLine($"{array[array.Length - 1]}]");
 }
 
-
-string[] InitArray = CreateArray(5);
+string[] InitArray = CreateArray();
 PrintArray(InitArray);
 string[] ResArray = ReduceCopyArray(InitArray, 3);
 PrintArray(ResArray);
